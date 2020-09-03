@@ -1,0 +1,1 @@
+This template provides a easy way to deploy web app on Azure Web Apps  with Azure database for PostgreSQL

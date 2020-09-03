@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmDnsName": {
+      "value": "string"
+    },
+    "adminUsername": {
+      "value": "string"
+    },
+    
+    "vmSize": {
+      "value": "string"
+    },
+    "adminPasswordOrKey": {
+      "value": "securestring"
+    }
+  }
+},
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[parameters('vmDnsName')]",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "administratorLogin": "[parameters('adminUsername')]",
+        "administratorLoginPassword": "[parameters('adminPasswordOrKey')]",
+        "version": "12.0"
+      }
+    }
+  ],
+  "outputs": {
+  }
+}
